@@ -14,11 +14,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Tarefa {
+model Task {
   id        Int      @id @default(autoincrement())
   title     String
   description String?   // a descrição é opcional, caso o usuário queira detalhar a tarefa
   done      Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("task")
 }
